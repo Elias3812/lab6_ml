@@ -89,6 +89,9 @@ test_data/
 ```bash
 python train.py
 ```
+Model will be saved into the directory 'saved_models/basnet_bsi/'.
+
+Also you can ownload the pre-trained model basnet.pth from [GoogleDrive](https://drive.google.com/file/d/1K9y9HpupXT0RJ4U4OizJ_Uk5byUyCupK/view)  extraction code, and put it into the directory 'saved_models/basnet_bsi/'
 
 ## Testing the Model
 To test the pre-trained model:
