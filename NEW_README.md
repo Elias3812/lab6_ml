@@ -40,13 +40,22 @@ The boundary-aware loss function and hybrid supervision strategy mark a signific
 
 ### Requirements
 
-Ensure the following dependencies are installed:
-- Python 3.6+
-- PyTorch 1.0+
-- torchvision
-- OpenCV
-- NumPy
-- Matplotlib
+Before starting the training or testing process, ensure you are working within the correct Python environment. Follow these steps to activate the `venv` with Python 3.6:
+
+1. Navigate to your project directory in the terminal.
+2. Create and activate a Python 3.6 virtual environment:
+
+```bash
+# Create a virtual environment
+py -3.6 -m venv venv
+
+# Activate the virtual environment
+# On Windows
+venv\Scripts\activate
+
+# On macOS/Linux
+source venv/bin/activate
+```
 
 Install the dependencies using:
 ```bash
