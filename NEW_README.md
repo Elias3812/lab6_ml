@@ -65,7 +65,7 @@ pip install -r requirements.txt
 
 Download the benchmark dataset used for training and evaluation:
 
-- **DUTS Dataset**: [Download Link]
+- **DUTS Dataset**: [Download Link](https://www.kaggle.com/datasets/balraj98/duts-saliency-detection-dataset?resource=download-directory)
 
 Organize the dataset into the following structure:
 
