@@ -1,6 +1,6 @@
 # Project Overview
 
-This repository hosts the code for the paper **"BASNet: Boundary-Aware Salient Object Detection"** by Qin et al., published in 2019. The paper introduces a novel deep learning-based framework for Salient Object Detection (SOD), emphasizing boundary awareness to enhance segmentation precision. The approach outperforms prior methods by leveraging a hybrid loss function and a carefully designed network architecture that balances global and boundary information.
+This repository hosts the code for the paper **["BASNet: Boundary-Aware Salient Object Detection"](https://arxiv.org/pdf/2101.04704)** by Qin et al., published in 2019. The paper introduces a novel deep learning-based framework for Salient Object Detection (SOD), emphasizing boundary awareness to enhance segmentation precision. The approach outperforms prior methods by leveraging a hybrid loss function and a carefully designed network architecture that balances global and boundary information.
 
 ## Paper Reference
 
