@@ -1,103 +1,117 @@
-# BASNet (New Version May 2nd, 2021)
+# Project Overview
 
-'[Boundary-Aware Segmentation Network for
-Mobile and Web Applications](https://arxiv.org/pdf/2101.04704.pdf)', Xuebin Qin, Deng-Ping Fan, Chenyang Huang, Cyril Diagne, Zichen Zhang,
-Adria Cabeza Sant’Anna, Albert Suarez, Martin Jagersand, and Ling Shao. 
+This repository hosts the code for the paper **"BASNet: Boundary-Aware Salient Object Detection"** by Qin et al., published in 2019. The paper introduces a novel deep learning-based framework for Salient Object Detection (SOD), emphasizing boundary awareness to enhance segmentation precision. The approach outperforms prior methods by leveraging a hybrid loss function and a carefully designed network architecture that balances global and boundary information.
 
-## Salient Object Detection(SOD) Qualitative Comparison
-![SOD Qualitative Comparison](figures/sod_qual_comp.PNG)
+## Paper Reference
 
-## Salient Objects in Clutter(SOC) Qualitative Comparison
-![SOC Qualitative Comparison](figures/soc_qual_comp.PNG)
+Qin, X., Zhang, Z., Huang, C., Dehghan, M., & Zaiane, O. (2019). **BASNet: Boundary-Aware Salient Object Detection**. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR).
 
-## Camouflaged Object Detection(COD) Qualitative Comparison
-![COD Qualitative Comparison](figures/cod_qual_comp.PNG)
+## Topics Covered
 
-## Predicted maps of SOD, SOC and COD datasets
+- Salient Object Detection (SOD)
+- Boundary Awareness in Image Segmentation
+- Deep Learning Architectures
+- Hybrid Loss Functions
 
-[SOD Results will come soon!]() \
-[SOC Results will come soon!]() \
-[COD Results](https://drive.google.com/file/d/12jijUPpdOe7k2O1YcLbkJHyXCJb3MRMN/view?usp=sharing)
+---
 
+## Key Contributions
 
+### Research Goals and Results
 
-# BASNet (CVPR 2019)
-Code for CVPR 2019 paper '[*BASNet: Boundary-Aware Salient Object Detection*](http://openaccess.thecvf.com/content_CVPR_2019/html/Qin_BASNet_Boundary-Aware_Salient_Object_Detection_CVPR_2019_paper.html) [code](https://github.com/NathanUA/BASNet)', [Xuebin Qin](https://webdocs.cs.ualberta.ca/~xuebin/), [Zichen Zhang](https://webdocs.cs.ualberta.ca/~zichen2/), [Chenyang Huang](https://chenyangh.com/), [Chao Gao](https://cgao3.github.io/), [Masood Dehghan](https://sites.google.com/view/masooddehghan) and [Martin Jagersand](https://webdocs.cs.ualberta.ca/~jag/). 
+The BASNet framework addresses the problem of accurately detecting salient objects in images, particularly focusing on refining the boundaries of the detected regions. The proposed network architecture combines global feature extraction with boundary refinement to deliver state-of-the-art performance.
 
-__Contact__: xuebin[at]ualberta[dot]ca
+### Algorithm/Idea
+The model introduces a **Boundary-Aware Neural Network (BASNet)**, which consists of a densely supervised encoder-decoder architecture. It incorporates a hybrid loss function composed of:
+- Binary Cross-Entropy
+- Structural Similarity
+- A new IoU-based loss term
 
-## (2020-May-09) NEWS! Our new Salient Object Detection model (U^2-Net), which is just accepted by Pattern Recognition, is available now!
-[U^2-Net: Going Deeper with Nested U-Structure for Salient Object Detection](https://github.com/NathanUA/U-2-Net)
+### Advantages
+- The integration of boundary information ensures precise segmentation, particularly at object edges.
+- BASNet outperforms existing methods on benchmark datasets like DUTS, ECSSD, and HKU-IS, achieving better **F-measure** and lower **mean absolute error**.
 
-## Evaluation
-[Evaluation Code](https://github.com/NathanUA/Binary-Segmentation-Evaluation-Tool)
+### Novelty
+The boundary-aware loss function and hybrid supervision strategy mark a significant improvement over traditional SOD models that often struggle with edge accuracy.
 
-## Required libraries
+---
 
-Python 3.6  
-numpy 1.15.2  
-scikit-image 0.14.0  
-PIL 5.2.0  
-PyTorch 0.4.0  
-torchvision 0.2.1  
-glob  
+## Running the Code
 
-The SSIM loss is adapted from [pytorch-ssim](https://github.com/Po-Hsun-Su/pytorch-ssim/blob/master/pytorch_ssim/__init__.py).  
+### Requirements
 
-## Usage
-1. Clone this repo
-```
-git clone https://github.com/NathanUA/BASNet.git
-```
-2. Download the pre-trained model basnet.pth from [GoogleDrive](https://drive.google.com/open?id=1s52ek_4YTDRt_EOkx1FS53u-vJa0c4nu) or [baidu](https://pan.baidu.com/s/1PrsBdepwrkMWPLSW22FhAg) extraction code: 6phq, and put it into the dirctory 'saved_models/basnet_bsi/'
+Before starting the training or testing process, ensure you are working within the correct Python environment. Follow these steps to activate the `venv` with Python 3.6:
 
-3.  Cd to the directory 'BASNet', run the training or inference process by command: ```python basnet_train.py```
-or ```python basnet_test.py``` respectively.  
+1. Navigate to your project directory in the terminal.
+2. Create and activate a Python 3.6 virtual environment:
 
- We also provide the predicted saliency maps ([GoogleDrive](https://drive.google.com/file/d/1K9y9HpupXT0RJ4U4OizJ_Uk5byUyCupK/view?usp=sharing),[Baidu](https://pan.baidu.com/s/1FJKVO_9YrP7Iaz7WT6Xdhg)) for datasets SOD, ECSSD, DUT-OMRON, PASCAL-S, HKU-IS and DUTS-TE.
+```bash
+# Create a virtual environment
+py -3.6 -m venv venv
 
-## Architecture
+# Activate the virtual environment
+# On Windows
+venv\Scripts\activate
 
-![BASNet architecture](figures/architecture.png)
-
-
-## Quantitative Comparison
-
-![Quantitative Comparison](figures/quan.png)
-
-## Qualitative Comparison
-
-![Qualitative Comparison](figures/qual.png)
-
-
-## Citation
-```
-@article{DBLP:journals/corr/abs-2101-04704,
-  author    = {Xuebin Qin and
-               Deng{-}Ping Fan and
-               Chenyang Huang and
-               Cyril Diagne and
-               Zichen Zhang and
-               Adri{\`{a}} Cabeza Sant'Anna and
-               Albert Su{\`{a}}rez and
-               Martin J{\"{a}}gersand and
-               Ling Shao},
-  title     = {Boundary-Aware Segmentation Network for Mobile and Web Applications},
-  journal   = {CoRR},
-  volume    = {abs/2101.04704},
-  year      = {2021},
-  url       = {https://arxiv.org/abs/2101.04704},
-  archivePrefix = {arXiv},
-}
+# On macOS/Linux
+source venv/bin/activate
 ```
 
-## Citation
+Install the dependencies using:
+```bash
+pip install -r requirements.txt
 ```
-@InProceedings{Qin_2019_CVPR,
-author = {Qin, Xuebin and Zhang, Zichen and Huang, Chenyang and Gao, Chao and Dehghan, Masood and Jagersand, Martin},
-title = {BASNet: Boundary-Aware Salient Object Detection},
-booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-month = {June},
-year = {2019}
-}
+## Dataset Preparation
+
+Download the benchmark dataset used for training and evaluation:
+
+- **DUTS Dataset**: [Download Link](https://www.kaggle.com/datasets/balraj98/duts-saliency-detection-dataset?resource=download-directory)
+
+Organize the dataset into the following structure:
+
+```plaintext
+train_data/
+  DUTS-TR/
+    DUTS-TR-Image/
+    DUTS-TR-Mask/
+
+test_data/
+  test_images/
+  test_results/
+    test_images/
 ```
+
+## Training the Model
+
+1. Modify the configuration file to set dataset paths and hyperparameters.
+2. Train the model using the following command:
+
+```bash
+python train.py
+```
+Model will be saved into the directory 'saved_models/basnet_bsi/'.
+
+Also you can ownload the pre-trained model basnet.pth from [GoogleDrive](https://drive.google.com/file/d/1K9y9HpupXT0RJ4U4OizJ_Uk5byUyCupK/view)  extraction code, and put it into the directory 'saved_models/basnet_bsi/'
+
+## Testing the Model
+To test the pre-trained model:
+
+1. Place your test images in the test_data/test_images/ directory.
+2. Run the test script:
+```bash
+python test.py
+```
+The results will be saved in the test_data/test_results/test_images/ directory.
+
+
+## Exploring the Code
+### Key Components
+- Model Architecture: The encoder-decoder network with skip connections ensures effective multi-scale feature fusion and boundary refinement.
+- Loss Function: The hybrid loss combines global and local constraints, specifically designed to enhance boundary precision.
+- Training Pipeline: Includes data augmentation, optimizer setup, and model checkpointing for efficient training.
+
+## Suggestions for Improvement
+- Preprocessing: Implement advanced data augmentation techniques such as CutMix or MixUp to improve generalization.
+- Data Sources: Utilize additional datasets for diverse training samples.
+- Model Architecture: Explore lightweight versions of the model for real-time applications by introducing depthwise separable convolutions.
+- Post-Processing: Use CRF (Conditional Random Fields) to refine boundaries further.
